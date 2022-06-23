@@ -1,0 +1,181 @@
+import java.util.Scanner;
+import java.util.Date;
+public class TestPerson {
+	public static void main(String[] args) {
+             Scanner input=new Scanner(System.in);
+             Student stu=new Student(input.next(),input.next(),input.next(),input.next(),input.nextInt());
+             
+             Staff staff=new Staff(input.next(),input.next(),input.next(),input.next(),input.next(),input.nextDouble(),input.nextInt(),input.nextInt(),input.nextInt(),input.next(),input.nextInt());
+      
+             Faculty faculty=new Faculty(input.next(),input.next(),input.next(),input.next(),input.next(),input.nextDouble(),input.nextInt(),input.nextInt(),input.nextInt(),input.next());
+              System.out.println(stu.toString());
+             
+             System.out.println(staff.toString());
+             System.out.println(faculty.toString());
+	}
+}
+class Person{
+    String name;
+    String add;
+    String phoneNo="13264563245";
+    String email;
+    Person(){}
+    Person(String name,String add,String phoneNo,String email){
+        this.name=name;
+        this.add=add;
+        this.phoneNo=phoneNo;
+        this.email=email;
+    }
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name=name;
+    }
+    public String getAdd(){
+        return add;
+    }
+    public void setAdd(String add){
+        this.add=add;
+    }
+    public String getPhoneNo(){
+        return phoneNo;
+    }
+    public void setPhoneNo(String phoneNo){
+        this.phoneNo=phoneNo;
+    }
+    public String getEmail(){
+        return email;
+    }
+    public void setEmail(String email){
+        this.email=email;
+    }
+    public String toString(){
+        return "姓名："+name+"\n"+"地址："+add+"\n"+"电话："+phoneNo+"\n"+"Email:"+email+"\n";
+    }
+}
+class Student extends Person{
+    int classStatus;
+    Student(){}
+    Student(String name,String add,String phoneNo,String email,int classStatus ){
+        super(name,add,phoneNo,email);
+        this.classStatus=classStatus;
+    }
+    public int getClassStatus(){
+        return classStatus;
+    }
+    public void setClassStatus(int classStatus){
+        this.classStatus=classStatus;
+    }
+    public String toString(){
+        return super.toString()+"班级:"+classStatus+"\n";
+    }
+}
+class Employee extends Person{
+    String office;
+    double salary;
+    int year;
+	int month;
+	int day;
+    Employee(){}
+    Employee(String name,String add,String phoneNo,String email,String office,double salary,int year,int month,int day){
+        super(name,add,phoneNo,email);
+        this.office=office;
+        this.salary=salary;
+        this.year=year;
+		this.month=month;
+		this.day=day;
+    }
+    public String getOffice(){
+        return office;
+    }
+    public void setOffice(String office){
+        this.office=office;
+    }
+    public double getSalary(){
+        return salary;
+    }
+    public void setSalary(double salary){
+        this.salary=salary;
+    }
+   
+    public String toString(){
+        return super.toString()+"\n"+"办公地点："+office+"\n"+"薪水："+salary+"\n"+"雇佣日期："+year+"年"+month+"月"+day+"日"+"\n";
+    }
+}
+
+class Staff extends Employee{
+	String officeHour;
+	int rank;
+	Staff(){}
+	Staff(String name,String add,String phoneNo,String email,String office,double salary,int year,int month,int day,String officeHour,int rank){
+		super(name,add,phoneNo,email,office,salary,year,month,day);
+		this.officeHour=officeHour;
+		this.rank=rank;
+	}
+	public String getOfficeHour() {
+		return officeHour;
+	}
+	public void setOfficeHour(String officeHour) {
+		this.officeHour=officeHour;
+	}
+	public int getRank() {
+		return rank;
+	}
+	public void setRank(int rank) {
+		this.rank=rank;
+	}
+	public String toString() {
+		return super.toString()+"办公时间："+officeHour+"\n"+"级别："+rank;
+	}
+}
+class Faculty extends Employee{
+    String title;
+    Faculty(){}
+    Faculty(String name,String add,String phoneNo,String email,String office,double salary,int year,int month,int day,String title){
+        super(name,add,phoneNo,email,office,salary,year,month,day);
+        this.title=title;
+        
+    }    
+    public String getTitle(){
+        return title;
+    }
+    public void setTitle(String title){
+        this.title=title;
+    }
+    public String toString(){
+        return super.toString()+"职称："+title;
+    }
+}
+class MyDate{
+	int year;
+	int month;
+	int day;
+	MyDate(){}
+	MyDate(int year,int month,int day){
+		this.year=year;
+		this.month=month;
+		this.day=day;
+	}
+	public int getYear() {
+		return year;
+	}
+	public void setYear(int year) {
+		this.year=year;
+	}
+	public int getMonth() {
+		return month;
+	}
+	public void setMonth(int month) {
+		this.month=month;
+	}
+	public int getDay() {
+		return day;
+	}
+	public void setDay(int day) {
+		this.day=day;
+	}
+	public String toString() {
+		return "年"+year+"月"+month+"日"+day;
+	}
+}
